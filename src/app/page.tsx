@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import PostForm from '@/components/PostForm';
 import PostList from '@/components/PostList';
 import type { Post, PostsResponse, ErrorResponse } from '@/types';
@@ -64,8 +65,13 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       {/* ヘッダー */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-4">
+        <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold text-blue-500">MiniSocial</h1>
+          <nav>
+            <Link href="/about" className="text-gray-600 hover:text-blue-500">
+              About
+            </Link>
+          </nav>
         </div>
       </header>
 
