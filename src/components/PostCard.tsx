@@ -25,7 +25,9 @@ export default function PostCard({ post, onDelete, onLike, onEdit }: Props) {
 
   // 日時フォーマット
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    // SupabaseはUTCでタイムスタンプを保存するため、Zを追加してUTCとして解析
+    const utcDateString = dateString.endsWith('Z') ? dateString : dateString + 'Z';
+    const date = new Date(utcDateString);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -145,7 +147,7 @@ export default function PostCard({ post, onDelete, onLike, onEdit }: Props) {
             value={editContent}
             onChange={(e) => setEditContent(e.target.value)}
             rows={4}
-            className="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
             disabled={isSaving}
           />
           <div className="flex items-center justify-between mt-2">

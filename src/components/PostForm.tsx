@@ -70,7 +70,7 @@ export default function PostForm({ onPostCreated }: Props) {
           onChange={(e) => setContent(e.target.value)}
           placeholder="今何してる？"
           rows={4}
-          className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-400"
           disabled={isSubmitting}
         />
       </div>
